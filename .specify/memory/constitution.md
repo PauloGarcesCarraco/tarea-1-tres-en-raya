@@ -1,50 +1,21 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Constitución: Tres en Raya con Agentes de Juego (SDD)
+Versión: 1.0.0 | Proyecto: Tarea 1 SDD (DCC Universidad de Chile)
 
-## Core Principles
+## P1. Stack Tecnológico
+Vite + JavaScript Vanilla + Vitest (o React + TypeScript). Prohibido el uso de frameworks de UI pesados o dependencias adicionales sin justificación explícita.
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+## P2. Arquitectura Pure Domain
+El motor del juego (`engine.js`) y los agentes de IA (`agents.js`) son funciones puras sin ninguna dependencia del DOM o la interfaz gráfica. La capa de interfaz (`ui.js` / React) únicamente consume la API de estos módulos.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+## P3. Gate TDD (NO NEGOCIABLE)
+Cada Criterio de Aceptación (con ID `CA-*`) debe contar con al menos un test automatizado en verde ANTES de dar por cerrada y aprobada la tarea que lo implementa.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+## P4. Gate de Commits Trazables
+Se requiere exactamente un commit por tarea en Git. El mensaje del commit debe seguir estrictamente el formato:
+`T-NNN: descripción breve (CA-X-NN)`
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+## P5. Gate de Depuración Spec-First (NO NEGOCIABLE)
+Ante cualquier bug o comportamiento incorrecto, la corrección debe realizarse en primer lugar modificando `spec.md`. Posteriormente, se regenera el código afectado. Quedan prohibidas las ediciones manuales directas al código sin documentación expresa en el `README.md`.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
-
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
-
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
-
-## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
-
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+## P6. Rendimiento y Latencia
+Los agentes de IA en cualquiera de sus tres niveles (Sencillo, Medio, Complejo) deben calcular y retornar su jugada en menos de 1 segundo (1000 ms).
