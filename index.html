@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tres en Raya - Tarea 1 DCC</title>
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+  <main id="game-container">
+    <h1>Tres en Raya <span class="badge">Pure Domain UI</span></h1>
+    
+    <section class="controls">
+      <div class="control-group">
+        <label for="game-mode">Modalidad:</label>
+        <select id="game-mode">
+          <option value="CLASSIC">Clásico</option>
+          <option value="CONTINUOUS">Continuo (Inspirado en P. Hurtado)</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="opponent-type">Oponente:</label>
+        <select id="opponent-type">
+          <option value="PVP">Humano vs Humano</option>
+          <option value="PVE">Humano vs IA</option>
+        </select>
+      </div>
+
+      <div class="control-group" id="ai-difficulty-container">
+        <label for="ai-difficulty">Dificultad IA:</label>
+        <select id="ai-difficulty">
+          <option value="EASY">Sencillo</option>
+          <option value="MEDIUM">Medio</option>
+          <option value="HARD">Complejo (Minimax)</option>
+        </select>
+      </div>
+
+      <button id="btn-restart" class="btn">Reiniciar Partida</button>
+    </section>
+
+    <section class="status-panel">
+      <div id="turn-indicator">Turno: X</div>
+      <div id="status-message"></div>
+    </section>
+
+    <section id="board" class="board-grid">
+      <div class="cell" data-index="0"></div>
+      <div class="cell" data-index="1"></div>
+      <div class="cell" data-index="2"></div>
+      <div class="cell" data-index="3"></div>
+      <div class="cell" data-index="4"></div>
+      <div class="cell" data-index="5"></div>
+      <div class="cell" data-index="6"></div>
+      <div class="cell" data-index="7"></div>
+      <div class="cell" data-index="8"></div>
+    </section>
+  </main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
