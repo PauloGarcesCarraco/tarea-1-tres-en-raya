@@ -4,7 +4,8 @@ import { getBestMove } from './agents.js';
 let gameState = null;
 let uiState = {
   selectedCell: null,
-  isAITurn: false
+  isAITurn: false,
+  hasShownMovementTooltip: false
 };
 
 export function getUIState() {
@@ -24,6 +25,7 @@ export function initUI() {
     gameState = createGame(mode);
     uiState.selectedCell = null;
     uiState.isAITurn = false;
+    uiState.hasShownMovementTooltip = false;
     render(gameState, uiState);
   };
 
@@ -60,6 +62,7 @@ export function handleCellClick(index) {
     if (uiState.selectedCell === null) {
       if (gameState.board[index] === gameState.turn) {
         uiState.selectedCell = index;
+        uiState.hasShownMovementTooltip = true; // Se oculta apenas interactúa para mover
         render(gameState, uiState);
       }
     } else {
@@ -118,14 +121,28 @@ function render(state, ui) {
 
   if (!cells.length || !turnIndicator || !statusMessage) return;
 
+  const showTooltip = state.mode === GameMode.CONTINUOUS && 
+                      state.phase === GamePhase.MOVEMENT && 
+                      !ui.hasShownMovementTooltip && 
+                      !ui.isAITurn;
+
   cells.forEach((cell, idx) => {
     const val = state.board[idx];
     cell.textContent = val || '';
     cell.className = 'cell';
+    cell.removeAttribute('data-tooltip');
+    cell.removeAttribute('title');
     
     if (val) {
       cell.classList.add('occupied');
       cell.classList.add(val === 'X' ? 'x-piece' : 'o-piece');
+      
+      // Aplicar tooltip solo en la primera jugada de movimiento a las fichas del jugador actual
+      if (showTooltip && val === state.turn) {
+        const tooltipText = "Para mover la ficha, haz clic en una y después en la casilla de destino para moverla.";
+        cell.setAttribute('data-tooltip', tooltipText);
+        cell.setAttribute('title', tooltipText);
+      }
     }
     if (ui.selectedCell === idx) {
       cell.classList.add('selected');
