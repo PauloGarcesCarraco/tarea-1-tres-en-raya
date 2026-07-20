@@ -111,7 +111,7 @@ En cumplimiento con la **Sección 7 (Condiciones - Integridad)** de las orientac
 * **Configuración de Entorno y CI/CD:** Resolución de errores de empaquetado y apoyo en la redacción del pipeline de automatización de GitHub Actions (`deploy.yml`).
 * **Optimización de Estilos CSS:** Asistencia para solucionar anomalías geométricas de maquetación en CSS Grid sin alterar la lógica puramente funcional del módulo de interfaz.
 
-*Nota de Autoría: En estricto cumplimiento con la normativa del curso, todo el código propuesto por IA fue auditado, refactorizado bajo estándares del grupo, verificado mediante ejecución de pruebas y es completamente dominado a nivel conceptual y técnico por los **cuatro integrantes** del equipo, quienes están capacitados para defender cualquier línea o especificación en la presentación.*
+*Nota de Autoría: En estricto cumplimiento con la normativa del curso, todo el código propuesto por IA fue auditado, refactorizado bajo estándares del grupo, verificado mediante ejecución de pruebas y es completamente dominado a nivel conceptual y técnico por los **seis integrantes** del equipo.*
 
 ---
 
