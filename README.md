@@ -118,12 +118,12 @@ En cumplimiento con la **Sección 7 (Condiciones - Integridad)** de las orientac
 ## Autores / Equipo de Trabajo
 
 Proyecto desarrollado por el Grupo 3 para el Diplomado en Ingeniería de Software (DCC - FCFM, Universidad de Chile):
- * **Claudio Vera
- * **Jorge Araya
- * **Paulo Garcés
- * **Rodrigo Villegas
- * **Sebastian Galvez
- * **Victoria Borquez 
+ * **Claudio Vera**
+ * **Jorge Araya**
+ * **Paulo Garcés**
+ * **Rodrigo Villegas**
+ * **Sebastian Galvez**
+ * **Victoria Borquez** 
 ---
 
 *Universidad de Chile — Facultad de Ciencias Físicas y Matemáticas — Departamento de Ciencias de la Computación.*
