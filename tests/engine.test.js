@@ -56,13 +56,16 @@ describe('Motor de Juego (Pure Domain)', () => {
     expect(g.phase).toBe(GamePhase.MOVEMENT);
   });
 
-  it('CA-M-10: debe permitir mover piezas en fase de movimiento', () => {
+  it('CA-M-10: debe permitir mover piezas en fase de movimiento sin victoria accidental', () => {
     let g = createGame(GameMode.CONTINUOUS);
+    // Colocamos en posiciones que no generen victoria al mover
     [0, 1, 2, 3, 4, 5].forEach(idx => { g = makeMove(g, idx).state; });
-    const result = movePiece(g, 0, 6); // X mueve de 0 a 6
+    // Movemos X de casilla 0 a casilla 8 (esquina vacía, sin formar línea)
+    const result = movePiece(g, 0, 8);
     expect(result.success).toBe(true);
     expect(result.state.board[0]).toBeNull();
-    expect(result.state.board[6]).toBe('X');
+    expect(result.state.board[8]).toBe('X');
     expect(result.state.turn).toBe('O');
+    expect(result.state.winner).toBeNull();
   });
 });
